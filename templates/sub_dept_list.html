@@ -1,0 +1,21 @@
+
+{% extends 'home.html' %}
+
+{% load static %}
+
+
+{% block content %}
+	
+		<center>
+			<br>
+			
+		<body>
+		
+		<center><a class="btn btn-secondary" style="width:auto;background-color:darkgray"><h2><b>SUB-DEPARTMENTS OF {{single_dept.d_name}}</b></h2></center></a><br>
+		{%for sub in sub_depts %}
+			<center><a  href="{% url 'tenders' sub.id%}" class="btn btn-primary" style="width:500px"><b>{{sub.sub_dept_name}}</b></a></center><br>
+		{% endfor %}
+			
+		</body>
+
+	{% endblock %}

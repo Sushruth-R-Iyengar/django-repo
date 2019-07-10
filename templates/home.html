@@ -1,0 +1,65 @@
+	{% extends 'base.html' %}
+{% load static %}
+<html>
+
+{% block breadcrumb %}
+<li class="breadcrumb-items active">Departments</li>
+{% endblock %}
+
+
+	
+
+
+{% block content %}
+	<center>
+		<br><br><br><br>
+	<h1><a class="btn btn-secondary" style="width: 600px; font-size:20px;background-color:darkgray"><b>DEPARTMENTS</b></h1></center></a><br>
+	<body><center>
+		
+	<!--<div id="watermark5">
+  			<img src="static\img\gk.jpg"  style=" height: 200px; width: 300px;opacity: 1;"/>
+	</div>-->
+
+
+		{% for dm in dept_names %}
+			<br><a href="{%url 'sub_departments' dm.id %}" class="btn btn-primary" style="width: 500px"><b>{{dm.d_name}}</b></a><br>
+		{% endfor %}
+	</center>
+	<div style="margin-top: -350px; margin-left: -1px">
+		<div style= "color:white">
+			<a class="btn btn-danger" style="width: 260px;"><b>Tenders</b></a><br>		
+		</div>
+		<div id="" style="overflow-y: scroll; height: 400px; background: rgb(211, 211, 211);width: 260px;">
+			{% for i in tender_names %}
+				<a ><b>{{ i }}</b></a><br><b>*</b>
+				<small style="text-muted d-block;padding-left: 0.5em"> {{ i.D_Id }}</small><br>
+				<a style="text-muted d-block;padding-left: 0.6em"> <b>></b></a>
+				<small style="text-muted d-block;padding-left: 0.2em"> {{ i.Sub_Id }}</small><br>
+				<a >____________________________________</a>
+			{% endfor %}
+		</div>
+			
+	</div>
+
+	<div style="margin-top: -450px; margin-left: 1260px">
+		<div style= "color: white">
+			<a class="btn btn-danger" style="width: 260px;"><b>Complaints</b></a><br>		
+		</div>
+		<div id="" style="overflow-y: scroll; height: 400px; background: lightgray;width: 260px;">
+			{% for i in compl %}
+				
+				<a style="padding-left: 0.5em"><b> {{ i.compl_name }}</b></a><br>
+				<a style="text-muted d-block;padding-left: 0.6em"> <b>></b></a>
+				<small style="text-muted d-block;padding-left: 0.2em"> {{ i.compl_description }}</small><br>
+				<a >_____________________________________</a>
+			{% endfor %}
+		</div>
+		<a href="{%url 'complaints' %}" class="btn btn-info" style="width: 260px;color: white"> <b>Add complaint</b></a>
+	</div>
+
+	</body>
+{% endblock %}
+
+
+
+</html>
